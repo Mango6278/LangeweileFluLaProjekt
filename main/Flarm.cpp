@@ -9,6 +9,7 @@
 #include "Router.h"
 #include <time.h>
 #include <sys/time.h>
+#include "sound.h"
 
 int Flarm::RX = 0;
 int Flarm::TX = 0;
@@ -507,7 +508,8 @@ void Flarm::drawFlarmWarning(){
 	e_audio_alarm_type_t alarm = AUDIO_ALARM_FLARM_1;
 	if( AlarmLevel == 3 ) { // highest, impact 0-8 seconds
 		volume = flarm_volume.get();
-		alarm = AUDIO_ALARM_FLARM_3;
+		alarm = AUDIO_ALARM_FLARM_OFF;
+		Sound::playSound(HI, true);
 	}
 	else if( AlarmLevel == 2 ){
 		volume = flarm_volume.get()/4;
