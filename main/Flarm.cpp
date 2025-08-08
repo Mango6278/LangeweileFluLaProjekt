@@ -9,6 +9,7 @@
 #include "Router.h"
 #include <time.h>
 #include <sys/time.h>
+#include "sound.h"
 
 int Flarm::RX = 0;
 int Flarm::TX = 0;
